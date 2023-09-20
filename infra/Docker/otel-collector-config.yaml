@@ -37,8 +37,8 @@ service:
     traces:
       receivers: [otlp]
       processors: [batch]
-      exporters: [logging, zipkin]
-#    metrics:
-#      receivers: [otlp]
-#      processors: [batch]
-#      exporters: [logging, prometheus]
+      exporters: [zipkin, jeager]
+    metrics:
+      receivers: [otlp]
+      processors: [batch]
+      exporters: [logging, prometheus]

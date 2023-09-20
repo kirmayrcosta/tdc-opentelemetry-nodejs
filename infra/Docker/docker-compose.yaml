@@ -9,6 +9,7 @@ services:
       - "16686:16686"
       - "14268"
       - "14250"
+      - "4317:4317"
 
   # Zipkin
   zipkin-all-in-one:
@@ -44,3 +45,16 @@ services:
       - ./prometheus.yaml:/etc/prometheus/prometheus.yml
     ports:
       - "9090:9090"
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    restart: unless-stopped
+    environment:
+      # increases the log level from info to debug
+      - GF_LOG_LEVEL=debug
+    ports:
+      - '3000:3000'
+    volumes:
+      - 'grafana_storage:/var/lib/grafana'
+volumes:
+  grafana_storage: {}
