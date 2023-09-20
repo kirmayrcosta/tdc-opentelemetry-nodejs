@@ -2,6 +2,7 @@
 ![Utilizando OpenTelemetry para aumentar o nível de observabilidade das suas aplicações em Nodejs.
 ](img/Proposal.png)
 
+## [Link dos Slides](https://www.canva.com/design/DAFuyxLjsD8/OU5qpt_hMrLKA4VdClMV3Q/edit?utm_content=DAFuyxLjsD8&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 
 OpenTelemetry é um projeto open-source mantido pela Cloud Native Computing Foundation (CNCF), resultado da combinação do OpenTracing e do OpenCensus. Essa poderosa ferramenta tem como objetivo padronizar a coleta de telemetria, abrangendo rastreamento (tracing), métricas e logs. Nesta apresentação, vamos explorar como utilizar o OpenTelemetry e apresentar exemplos de arquiteturas que podem elevar o nível de observabilidade de suas aplicações.
 
