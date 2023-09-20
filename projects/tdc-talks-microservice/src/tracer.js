@@ -1,6 +1,5 @@
 const { registerInstrumentations } = require('@opentelemetry/instrumentation');
-const { GraphQLInstrumentation } = require('@opentelemetry/instrumentation-graphql');
-const { SimpleSpanProcessor } = require('@opentelemetry/sdk-trace-base');
+const { ConsoleSpanExporter, SimpleSpanProcessor } = require('@opentelemetry/sdk-trace-base');
 const { NodeTracerProvider } = require('@opentelemetry/sdk-trace-node');
 const { OTLPTraceExporter } = require('@opentelemetry/exporter-trace-otlp-http');
 const { HttpInstrumentation } = require('@opentelemetry/instrumentation-http');
@@ -13,7 +12,7 @@ const { SemanticResourceAttributes } = require('@opentelemetry/semantic-conventi
 
 const provider = new NodeTracerProvider({
     resource: new Resource({
-        [SemanticResourceAttributes.SERVICE_NAME]: 'tdc-bff-app',
+        [SemanticResourceAttributes.SERVICE_NAME]: 'tdc-talks-microservice',
     }),
 });
 
@@ -25,11 +24,7 @@ provider.register();
 
 registerInstrumentations({
     instrumentations: [
-        new GraphQLInstrumentation({
-            allowAttributes: true,
-            depth: 2,
-            // mergeItems: true,
-        }),
+        new ExpressInstrumentation(),
         new HttpInstrumentation()
     ],
 });

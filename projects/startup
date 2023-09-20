@@ -1,0 +1,12 @@
+
+
+cd tdc-speakers-microservice
+
+npm run start
+
+cd ../tdc-talk-microservice
+npm run start
+
+cd ./tdc-app-bff
+npm run start
+
